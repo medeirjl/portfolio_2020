@@ -1,0 +1,153 @@
+/*
+Variables
+========================================================================== */
+
+/* Colors */
+$colorBlack: #121212;
+$colorWhite: #ffffff;
+$colorGrey: #e0e0e0;
+$colorRed: #d9007f;
+$colorPurple: #4f038e;
+
+/* Typography */
+$regFont: 'Montserrat',Helvetica,Arial,sans-serif;
+$bodyCopyMobile: 14px;
+$bodyCopyDesktop: 16px;
+
+/*
+Variables - Typography
+========================================================================== */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Material+Icons');
+
+@mixin pageHeading( $color) {
+    margin: 15px 0 25px;
+    padding: 0;
+    color: $color;
+    line-height: 1.4;
+    font-size: 24px;
+    text-align: left;
+    font-weight: 600;
+    @include screenSmall {
+        font-size: 30px;
+        margin: 35px 0 25px;
+    }
+    @include screenMedium {
+        //font-size: 36px;
+    }
+}
+
+@mixin smHeading( $color) {
+    margin: 0 0 20px;
+    padding: 0;
+    color: $color;
+    line-height: 1.4;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    @include screenSmall {
+        font-size: 18px;
+    }
+}
+
+@mixin bodyCopy( $color) {
+    font-size: $bodyCopyMobile;
+    font-family: $regFont;
+    color: $color;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: 1.25 * $bodyCopyMobile;
+    @include screenSmall {
+        font-size: $bodyCopyDesktop;
+        margin-bottom: $bodyCopyDesktop;
+    }
+}
+
+@mixin btn( $fontColor, $backgroundColor) {
+    padding: 6px 25px;
+    background: $backgroundColor;
+    color: $fontColor;
+    border: 2px solid $fontColor;
+    text-transform: uppercase;
+    font-weight: 800;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 14px;
+    font-size: 12px;
+    &:hover {
+        background: $fontColor;
+        color: $backgroundColor;
+        border: 2px solid $backgroundColor;
+    }
+}
+
+@mixin gradientText( $color1, $color2 ) {
+    background: -webkit-linear-gradient(left, $color1 0%, $color2 100%);
+    background: -webkit-linear-gradient(45deg, $color1 0%,$color2 100%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*
+Variables - Utilites
+========================================================================== */
+
+%alignVertHorz {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+%alignVert {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+%alignHorz {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* 
+Media Queries
+========================================================================== */
+
+$screen-sm: 500px;
+$screen-md: 769px;
+$screen-lg: 1025px;
+$screen-xl: 1200px;
+@mixin screenSmall {
+    @media (min-width: #{$screen-sm}) {
+        @content;
+    }
+}
+@mixin screenMedium {
+    @media (min-width: #{$screen-md}) {
+        @content;
+    }
+}
+@mixin screenLarge {
+    @media (min-width: #{$screen-lg}) {
+        @content;
+    }
+}
+@mixin screenXLarge {
+    @media (min-width: #{$screen-xl}) {
+        @content;
+    }
+}
+
+
+
+/* IE10+ specific styles go here */
+@mixin ie10And11 {
+    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+        @content;
+    }
+}
