@@ -6,6 +6,9 @@
       <router-link class="header_nav_link" to="/contact">Contact</router-link>
     </nav>
     <router-view />
+    <footer>
+      <small>Copyright 2020. All rights reserved.</small>
+    </footer>
   </div>
 </template>
 <script>
@@ -98,10 +101,14 @@ p {
   left: 0;
   right: 0;
   width: 100%;
+  z-index: 99;
   text-align: right;
   padding: 10px 50px 10px 0;
   box-sizing: border-box;
   background-color: $colorWhite;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), 
+                0 2px 4px rgba(0,0,0,0.05), 
+                0 4px 8px rgba(0,0,0,0.05);
 
   &_link {
     display: inline-block;
@@ -114,5 +121,11 @@ p {
       color: $colorWhite;
     }
   }
+}
+
+footer {
+  background: $colorPurple;
+  color: $colorWhite;
+  padding: 20px 0;
 }
 </style>

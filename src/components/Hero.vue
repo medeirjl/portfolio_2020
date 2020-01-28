@@ -27,6 +27,20 @@ export default {
   &.large {
     padding: 150px 15px;
   }
+  &.small {
+    padding: 80px 15px;
+    background: $colorGrey;
+    img {
+      display: none;
+    }
+    h1 {
+      @include screenMedium {
+        font-size: 55px;
+        padding-left: 50px;
+        margin: 0 auto;
+      }
+    }
+  }
 
   &_img {
     width: 600px;
